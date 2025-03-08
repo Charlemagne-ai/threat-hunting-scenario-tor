@@ -4,6 +4,7 @@
 
 **Detection of Unauthorized TOR Browser Installation and Usage on Workstation:** `server-dev-01`
 
+
 ## Background
 
 Recent security logs and employee reports have raised concerns about potential unauthorized access to restricted websites during working hours. Management identified unusual encrypted network traffic patterns, specifically connections to known TOR entry nodes. Additionally, anonymous employee reports have indicated discussions on methods to bypass network security controls using TOR browsers. These combined factors have raised suspicions that employees may be using TOR to circumvent established network access policies.
@@ -12,11 +13,19 @@ Recent security logs and employee reports have raised concerns about potential u
 
 The primary objective of this investigation is to detect and analyze TOR usage within the organization’s network to assess associated security risks. The investigation aims to identify any related security incidents resulting from such activity, particularly those that could expose sensitive organizational data or lead to unauthorized actions. If TOR usage is confirmed, management will be immediately notified, and appropriate mitigation measures will be recommended to prevent further circumvention of network security controls.
 
+## Platforms and Languages Leveraged
+- Windows 10 Virtual Machines (Microsoft Azure)
+- EDR Platform: Microsoft Defender for Endpoint
+- Kusto Query Language (KQL)
+- Tor Browser
+
 ## High-Level TOR-Related IoC Discovery Plan
 
 - Check `DeviceFileEvents` for occurrences involving `tor.exe` or `firefox.exe`.
 - Review `DeviceProcessEvents` for indicators of installation or execution related to TOR.
 - Analyze `DeviceNetworkEvents` for signs of outgoing connections utilizing known TOR ports.
+
+--- 
 
 ## Steps Taken
 
